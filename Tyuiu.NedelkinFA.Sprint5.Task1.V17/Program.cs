@@ -1,10 +1,11 @@
 ﻿using Tyuiu.NedelkinFA.Sprint5.Task1.V17.Lib;
-int startVaule = 7;
-int stopVaule = 8;
+
+int startValue = -5;
+int stopValue = 5;
 DataService ds = new DataService();
-Console.WriteLine("startVaule = " + startVaule);
-Console.WriteLine("stopVaule = " + stopVaule);
-string res = ds.SaveToFileTextData(startVaule, stopVaule);
+Console.WriteLine("startValue = " + startValue);
+Console.WriteLine("stopValue = " + stopValue);
+string res = ds.SaveToFileTextData(startValue, stopValue);
 Console.WriteLine("file: " + res);
-Console.WriteLine("sozdan!");
+Console.WriteLine("создан!");
 Console.ReadKey();
