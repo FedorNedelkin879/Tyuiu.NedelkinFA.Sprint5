@@ -5,7 +5,7 @@ int x = 2;
 DataService ds = new DataService();
 double result = ds.CalculateFunction(x);
 Console.WriteLine("F(" + x + ") = " + result);
-string filePath = ds.SaveToFileTextData(result);
+string filePath = ds.SaveToFileTextData(x);
 Console.WriteLine("file: " + filePath);
 Console.WriteLine("создан!");
 Console.ReadKey();
