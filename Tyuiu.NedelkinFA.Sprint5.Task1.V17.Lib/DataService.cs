@@ -17,7 +17,6 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task1.V17.Lib
             string strY;
             using (StreamWriter writer = new StreamWriter(path))
             {
-                writer.WriteLine(" x\t\tF(x)");
                 for (int x = startValue; x <= stopValue; x++)
                 {
                     double denominator = Math.Sin(x) + 1;
@@ -29,8 +28,8 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task1.V17.Lib
                     {
                         y = 2 * x - 4 + (2 * x - 1) / denominator;
                     }
-                    strY = Math.Round(y, 2).ToString();
-                    writer.WriteLine($"{x}\t\t{strY}");
+                    strY = Math.Round(y, 2).ToString("F2").Replace('.', ',');
+                    writer.WriteLine(strY);
                 }
             }
             return path;
