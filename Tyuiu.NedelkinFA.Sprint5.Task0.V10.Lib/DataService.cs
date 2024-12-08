@@ -1,12 +1,20 @@
-﻿using tyuiu.cources.programming.interfaces.Sprint5;
+﻿using System.IO;
 
 namespace Tyuiu.NedelkinFA.Sprint5.Task0.V10.Lib
 {
-    public class DataService : ISprint5Task0V10
+    public class DataService
     {
-        public string SaveToFileTextData(int x)
+        public double CalculateFunction(int x)
         {
-            throw new NotImplementedException();
+            return 1.6 * Math.Pow(x, 3) - 2.1 * Math.Pow(x, 2) + 7 * x;
+        }
+
+        public string SaveToFileTextData(double result)
+        {
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask0.txt");
+            result = Math.Round(result, 3);
+            File.WriteAllText(path, Convert.ToString(result));
+            return path;
         }
     }
 }
