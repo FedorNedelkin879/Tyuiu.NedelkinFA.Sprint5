@@ -8,7 +8,7 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task0.V10.Lib
         public string CalculateFunction(int x)
         {
             double result = 1.6 * Math.Pow(x, 3) - 2.1 * Math.Pow(x, 2) + 7 * x;
-            return Math.Round(result, 3).ToString("F3").Replace('.', ','); 
+            return Math.Round(result, 3).ToString("F1").Replace('.', ','); 
         }
 
         public string SaveToFileTextData(int x)
