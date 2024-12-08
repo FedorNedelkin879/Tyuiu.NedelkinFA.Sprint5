@@ -29,6 +29,10 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task1.V17.Lib
                         y = 2 * x - 4 + (2 * x - 1) / denominator;
                     }
                     strY = Math.Round(y, 2).ToString("F2").Replace('.', ',');
+                    if (strY.EndsWith(",00"))
+                    {
+                        strY = strY.Substring(0, strY.Length - 3); 
+                    }
                     writer.WriteLine(strY);
                 }
             }
