@@ -14,8 +14,8 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task0.V10.Lib
         {
             double result = CalculateFunction(x);
             string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask0.txt");
-            result = Math.Round(result, 3);
-            File.WriteAllText(path, "\"" + result + "\"");
+            string formattedResult = result.ToString("F3").Replace('.', ',');
+            File.WriteAllText(path, $"\"{formattedResult}\"");
             return path;
         }
     }
