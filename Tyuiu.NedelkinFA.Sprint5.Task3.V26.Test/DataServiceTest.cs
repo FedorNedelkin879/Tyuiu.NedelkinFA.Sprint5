@@ -8,7 +8,7 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task3.V26.Test
         [TestMethod]
         public void CheckedExistsFile()
         {
-            string path = @"C:\Users\Федя\source\repos\Tyuiu.NedelkinFA.Sprint5\Tyuiu.NedelkinFA.Sprint5.Task3.V26\bin\Debug\OutPutFileTask3.bin";
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask3.bin");
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
             bool expected = true;

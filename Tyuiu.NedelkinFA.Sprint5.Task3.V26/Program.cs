@@ -1,11 +1,9 @@
 ﻿using Tyuiu.NedelkinFA.Sprint5.Task3.V26.Lib;
-int a = 1;
-int b = 2;
-int c = 3;
+
+int x = 2;
 DataService ds = new DataService();
-Console.WriteLine("a = " + a);
-Console.WriteLine("b = " + b);
-Console.WriteLine("c = " + c);
-string res = ds.SaveToFileBinaryData(a, b, c);
-Console.WriteLine("file sozdan " + res);
+double result = ds.CalculateF(x);
+Console.WriteLine("F(" + x + ") = " + Math.Round(result, 3));
+string filePath = ds.SaveToFileTextData(result);
+Console.WriteLine("Файл создан: " + filePath);
 Console.ReadKey();
