@@ -1,0 +1,11 @@
+﻿using Tyuiu.NedelkinFA.Sprint5.Task3.V26.Lib;
+int a = 1;
+int b = 2;
+int c = 3;
+DataService ds = new DataService();
+Console.WriteLine("a = " + a);
+Console.WriteLine("b = " + b);
+Console.WriteLine("c = " + c);
+string res = ds.SaveToFileBinaryData(a, b, c);
+Console.WriteLine("file sozdan " + res);
+Console.ReadKey();
