@@ -2,8 +2,6 @@
 
 int x = 2;
 DataService ds = new DataService();
-double result = ds.CalculateF(x);
-Console.WriteLine("F(" + x + ") = " + Math.Round(result, 3));
-string filePath = ds.SaveToFileTextData(result);
+string filePath = ds.SaveToFileTextData(x);
 Console.WriteLine("Файл создан: " + filePath);
 Console.ReadKey();
