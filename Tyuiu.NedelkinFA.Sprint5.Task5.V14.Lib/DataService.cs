@@ -7,16 +7,31 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task5.V14.Lib
     {
         public double LoadFromDataFile(string path)
         {
-            double res = 0;
+            double maxDivisibleByThree = double.MinValue;
             using (StreamReader reader = new StreamReader(path))
             {
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    res = res + Convert.ToDouble(line);
+                    double value = Math.Round(Convert.ToDouble(line), 3);
+                    if (value % 3 == 0 && value > maxDivisibleByThree)
+                    {
+                        maxDivisibleByThree = value;
+                    }
                 }
             }
-            return res;
+
+            return Factorial((int)maxDivisibleByThree);
+        }
+
+        private double Factorial(int number)
+        {
+            double result = 1;
+            for (int i = 2; i <= number; i++)
+            {
+                result *= i;
+            }
+            return result;
         }
     }
 }
