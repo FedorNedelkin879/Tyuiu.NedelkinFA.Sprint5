@@ -2,7 +2,7 @@
 
 DataService ds = new DataService();
 string path = $@"{Directory.GetCurrentDirectory()}\InPutFileTask4.txt";
-Console.WriteLine("dannie tut: " + path);
-double res = ds.LoadFromDataFile(path);
-Console.WriteLine(res);
+Console.WriteLine("дан тут: " + path);
+double result = ds.LoadFromDataFile(path);
+Console.WriteLine("фил тут: " + result);
 Console.ReadKey();

@@ -8,8 +8,9 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task4.V28.Lib
         public double LoadFromDataFile(string path)
         {
             string strX = File.ReadAllText(path);
-            double res = Math.Round(Math.Pow(Convert.ToDouble(strX), 2), 3);
-            return res;
+            double x = double.Parse(strX.Replace(',', '.'));
+            double result = Math.Round((3 * x * x * x) / Math.Sin(x), 3);
+            return result;
         }
     }
 }
