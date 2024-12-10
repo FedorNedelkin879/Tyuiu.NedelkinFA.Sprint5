@@ -8,16 +8,16 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task5.V14.Lib
         public double LoadFromDataFile(string path)
         {
             double maxDivisibleByThree = double.MinValue;
-            using (StreamReader reader = new StreamReader(path))
+
+            string content = File.ReadAllText(path);
+            string[] numbers = content.Split(new[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string str in numbers)
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                double value = Math.Round(Convert.ToDouble(str.Replace('.', ',')), 3);
+                if (value % 3 == 0 && value > maxDivisibleByThree)
                 {
-                    double value = Math.Round(Convert.ToDouble(line), 3);
-                    if (value % 3 == 0 && value > maxDivisibleByThree)
-                    {
-                        maxDivisibleByThree = value;
-                    }
+                    maxDivisibleByThree = value;
                 }
             }
 
