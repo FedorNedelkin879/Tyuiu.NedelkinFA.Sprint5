@@ -13,9 +13,10 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task6.V27.Lib
                 string line;
                 while ((line = reader.ReadLine()) != null)
                 {
-                    for (int i = 0; i < line.Length; i++)
+                    string[] words = line.Split(' ', '\t', '\n', '\r');
+                    foreach (string word in words)
                     {
-                        if (line[i] == '*')
+                        if (word.Length == 3 && int.TryParse(word, out _))
                         {
                             count++;
                         }
