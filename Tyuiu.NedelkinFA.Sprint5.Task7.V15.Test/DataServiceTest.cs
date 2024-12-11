@@ -6,13 +6,15 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task7.V15.Test
     public class DataServiceTest
     {
         [TestMethod]
-        public void CheckedExistsFile()
+        public void ValidWordDeletion()
         {
-            string path = $@"C:\Users\Федя\source\repos\Tyuiu.NedelkinFA.Sprint5\Tyuiu.NedelkinFA.Sprint5.Task7.V15\bin\Debug\InPutDataFileTask7V15.txt";
-            FileInfo fileInfo = new FileInfo(path);
-            bool fileExists = fileInfo.Exists;
-            bool wait = true;
-            Assert.AreEqual(wait, fileExists);
+            string inputPath = Path.Combine(Path.GetTempPath(), "InPutFileTask7V15.txt");
+            string outputPath = Path.Combine(Path.GetTempPath(), "OutPutFileTask7V15.txt");
+            File.WriteAllText(inputPath, "This is a test string with to delete.");
+            DataService ds = new DataService();
+            ds.LoadDataAndSave(inputPath);
+            string result = File.ReadAllText(outputPath).Trim();
+            Assert.AreEqual("This test string with delete.", result);
         }
     }
 }

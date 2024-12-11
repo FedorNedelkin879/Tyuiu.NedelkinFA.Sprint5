@@ -7,28 +7,22 @@ namespace Tyuiu.NedelkinFA.Sprint5.Task7.V15.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\InPutFileTask7V15.txt";
-            FileInfo fileInfo = new FileInfo(path);
-            bool fileExists = fileInfo.Exists;
-            if (fileExists)
+            string pathSaveFile = Path.Combine(Path.GetTempPath(), "OutPutFileTask7V15.txt");
+            if (File.Exists(pathSaveFile))
             {
                 File.Delete(pathSaveFile);
             }
-            string strLine = "";
             using (StreamReader reader = new StreamReader(path))
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                using (StreamWriter writer = new StreamWriter(pathSaveFile))
                 {
-                    for (int i = 0; i < line.Length; i++)
+                    string line;
+                    while ((line = reader.ReadLine()) != null)
                     {
-                        if (line[i] != '*') && (line[i] != '+') && (line[i] != '-') && (line[i] != '/')
-                        {
-                            strLine = strLine + line[i];
-                        }
+                        string[] words = line.Split(' ', '\t', '\n', '\r');
+                        string resultLine = string.Join(" ", words.Where(word => word.Length != 2));
+                        writer.WriteLine(resultLine);
                     }
-                    File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
-                    strLine = "";
                 }
             }
             return pathSaveFile;
